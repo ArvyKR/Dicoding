@@ -52,17 +52,15 @@ with st.sidebar:
         min_value=min_date,
         max_value=max_date
     )
-            
-
-    product_categories = all_df['product_category_name_english'].unique()
-    selected_category = st.sidebar.selectbox('Select Product Category', product_categories)
-
-
-    main_df = main_df[main_df['product_category_name_english'] == selected_category]
 
 # Main
 main_df = all_df[(all_df["order_approved_at"] >= str(start_date)) & 
                  (all_df["order_approved_at"] <= str(end_date))]
+
+product_categories = all_df['product_category_name_english'].unique()
+selected_category = st.sidebar.selectbox('Select Product Category', product_categories)
+
+main_df = main_df[main_df['product_category_name_english'] == selected_category]
 
 function = DataAnalyzer(main_df)
 map_plot = BrazilMapPlotter(data, plt, mpimg, urllib, st)
