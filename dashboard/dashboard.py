@@ -44,13 +44,6 @@ with st.sidebar:
                  , width=100)
     with col3:
         st.write(' ')
-        
-
-product_categories = all_df['product_category_name_english'].unique()
-selected_category = st.sidebar.selectbox('Select Product Category', product_categories)
-
-
-main_df = main_df[main_df['product_category_name_english'] == selected_category]
 
     # Date Range
     start_date, end_date = st.date_input(
@@ -59,6 +52,13 @@ main_df = main_df[main_df['product_category_name_english'] == selected_category]
         min_value=min_date,
         max_value=max_date
     )
+            
+
+    product_categories = all_df['product_category_name_english'].unique()
+    selected_category = st.sidebar.selectbox('Select Product Category', product_categories)
+
+
+    main_df = main_df[main_df['product_category_name_english'] == selected_category]
 
 # Main
 main_df = all_df[(all_df["order_approved_at"] >= str(start_date)) & 
