@@ -207,4 +207,4 @@ with tab2:
     with st.expander("See Explanation"):
         st.write('According to the graph that has been created, there are more customers in the southeast and south. Other information, there are more customers in cities that are capitals (São Paulo, Rio de Janeiro, Porto Alegre, and others).')
 
-st.caption('Copyright (C) Muhammad Hafiz 2023')
+st.caption('Copyright (C) Arvy Kurnia Ramadhan - 2024')
