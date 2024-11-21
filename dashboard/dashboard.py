@@ -5,9 +5,10 @@ import seaborn as sns
 import streamlit as st
 import urllib
 from func import DataAnalyzer, BrazilMapPlotter
+import matplotlib.pyplot as plt
 
 sns.set(style='dark')
-st.set_option('deprecation.showPyplotGlobalUse', False)
+plt.rcParams.update({'axes.grid': True})
 
 # Dataset
 datetime_cols = ["order_approved_at", "order_delivered_carrier_date", "order_delivered_customer_date", "order_estimated_delivery_date", "order_purchase_timestamp", "shipping_limit_date"]
