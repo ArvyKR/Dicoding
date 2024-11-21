@@ -91,16 +91,25 @@ with col2:
     st.markdown(f"Total Revenue: **{total_revenue}**")
 
 fig, ax = plt.subplots(figsize=(12, 6))
-sns.lineplot(
-    x=daily_orders_df["order_approved_at"],
-    y=daily_orders_df["order_count"],
-    marker="o",
-    linewidth=2,
-    color="#90CAF9"
-)
-ax.tick_params(axis="x", rotation=45)
-ax.tick_params(axis="y", labelsize=15)
+colors = sns.color_palette("Blues", len(review_score))
+
+sns.barplot(x=review_score.index,
+            y=review_score.values,
+            order=review_score.index,
+            palette=colors)
+
+plt.title("Customer Review Scores for Service", fontsize=15)
+plt.xlabel("Rating")
+plt.ylabel("Count")
+plt.xticks(fontsize=12)
+plt.yticks(fontsize=12)
+
+# Add labels above bars
+for i, v in enumerate(review_score.values):
+    ax.text(i, v + 2, str(v), ha='center', va='bottom', fontsize=12, color='black')
+
 st.pyplot(fig)
+
 
 # Customer Spend Money
 st.subheader("Customer Spend Money")
