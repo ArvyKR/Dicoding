@@ -44,6 +44,13 @@ with st.sidebar:
                  , width=100)
     with col3:
         st.write(' ')
+        
+
+product_categories = all_df['product_category_name_english'].unique()
+selected_category = st.sidebar.selectbox('Select Product Category', product_categories)
+
+
+main_df = main_df[main_df['product_category_name_english'] == selected_category]
 
     # Date Range
     start_date, end_date = st.date_input(
