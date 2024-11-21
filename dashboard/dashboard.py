@@ -7,6 +7,14 @@ import urllib
 from func import DataAnalyzer, BrazilMapPlotter
 import matplotlib.pyplot as plt
 
+# Mengatur tema halaman Streamlit
+st.set_page_config(
+    page_title="E-Commerce Data Analysis",
+    page_icon="🛒",
+    layout="wide",  # Bisa "centered" atau "wide"
+    initial_sidebar_state="expanded",  # Bisa "collapsed" atau "expanded"
+)
+
 sns.set(style='dark')
 plt.rcParams.update({'axes.grid': True})
 
